@@ -4,19 +4,20 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f1115;
-  --accent-color: #0f1115;
-  --accent-muted: #6b7280;
+  --foreground: #000000;
+  --accent-color: #000000;
+  --accent-muted: #374151;
   --border-color: #e5e7eb;
+  --card-background: #f9fafb;
 }
 
 .dark {
-  --background: #1C1C1C;
-  --foreground: #f3f4f6;
+  --background: #1B2922;
+  --foreground: #ffffff;
   --accent-color: #ffffff;
-  --accent-muted: #4A6958;
+  --accent-muted: #cbd5e1;
   --border-color: #435146;
-  --card-background: #1B2922;
+  --card-background: #1C1C1C;
 }
 
 @theme inline {
