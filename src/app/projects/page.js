@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -67,12 +68,12 @@ export default function ProjectsComingSoon() {
         </p>
 
         {/* Return Button */}
-        <a
+        <Link
           href="/"
           className="px-8 py-3 rounded-full font-medium text-sm border border-transparent bg-foreground text-background transition-shadow duration-300 shadow-md shadow-foreground/5 hover:shadow-xl hover:shadow-foreground/10 text-center flex items-center justify-center"
         >
           Return Home
-        </a>
+        </Link>
       </motion.div>
     </main>
   );

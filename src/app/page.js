@@ -531,7 +531,7 @@ export default function Home() {
                   Send Message
                 </a>
                 <a
-                  href="/MY%20RESUME.pdf"
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/MY%20RESUME.pdf`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 rounded-full font-medium text-sm md:text-base border border-border-custom bg-background/40 hover:bg-background/80 hover:border-foreground/40 text-foreground transition-all duration-300 shadow-sm hover:shadow-lg text-center flex items-center justify-center min-w-[170px]"
