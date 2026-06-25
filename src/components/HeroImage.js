@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import portraitImg from "../../public/portrait.png";
 
 export default function HeroImage() {
   return (
@@ -26,7 +27,7 @@ export default function HeroImage() {
         className="w-full h-full relative rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-border-custom bg-black"
       >
         <Image
-          src="/portrait.png"
+          src={portraitImg}
           alt="Spurge - Creative Developer & UI Engineer"
           fill
           priority
