@@ -12,12 +12,12 @@
 }
 
 .dark {
-  --background: #1B2922;
+  --background: #1C1C1C;
   --foreground: #ffffff;
   --accent-color: #ffffff;
   --accent-muted: #cbd5e1;
   --border-color: #435146;
-  --card-background: #1C1C1C;
+  --card-background: #1B2922;
 }
 
 @theme inline {

@@ -8,6 +8,7 @@ import HeroImage from "@/components/HeroImage";
 import CTAButtons from "@/components/CTAButtons";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import bgTechImg from "../../public/bg-tech.png";
+import AutoScrollButton from "@/components/AutoScrollButton";
 
 export default function Home() {
   const sectionVariants = {
@@ -610,6 +611,7 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+      <AutoScrollButton />
     </main>
   );
 }
