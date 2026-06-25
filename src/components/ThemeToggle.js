@@ -28,7 +28,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-12 h-12 flex items-center justify-center rounded-full border border-border-custom bg-background/50 backdrop-blur-md" />
+      <div className="w-12 h-12 flex items-center justify-center rounded-full border border-border-custom bg-card-bg/50 backdrop-blur-md" />
     );
   }
 
@@ -36,7 +36,7 @@ export default function ThemeToggle() {
     <motion.button
       id="theme-toggle-btn"
       onClick={toggleTheme}
-      className="relative w-12 h-12 flex items-center justify-center rounded-full border border-border-custom bg-background/40 hover:bg-background/80 backdrop-blur-md cursor-pointer transition-colors duration-300 focus:outline-none"
+      className="relative w-12 h-12 flex items-center justify-center rounded-full border border-border-custom bg-card-bg/40 hover:bg-card-bg/80 backdrop-blur-md cursor-pointer transition-colors duration-300 focus:outline-none"
       whileHover={{ scale: 1.05, borderColor: "var(--accent-color)" }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"

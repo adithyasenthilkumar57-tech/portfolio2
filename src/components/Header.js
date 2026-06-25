@@ -94,25 +94,28 @@ export default function Header() {
           </motion.div>
 
           {/* Desktop Navigation Links (Centered in Header) */}
-          <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-8 z-40">
+          <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-1 z-40 bg-foreground/[0.01] dark:bg-white/[0.01] border border-foreground/[0.06] dark:border-white/[0.06] rounded-full p-1 backdrop-blur-md shadow-sm">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
-                <div key={item.id} className="relative py-1">
+                <div key={item.id} className="relative py-1.5 px-4 flex items-center justify-center">
                   <button
                     onClick={() => handleNavClick(item.id)}
-                    className={`text-xs md:text-sm tracking-widest font-medium cursor-pointer transition-colors duration-300 relative z-10 ${isActive ? "text-foreground" : "text-accent-muted hover:text-foreground"
+                    className={`text-xs md:text-sm tracking-widest font-medium cursor-pointer transition-colors duration-300 relative z-10 ${isActive ? "text-foreground font-semibold" : "text-accent-muted hover:text-foreground"
                       }`}
                   >
                     {item.label}
                   </button>
-                  {/* Underline Slide Effect */}
+                  {/* Sliding Glass Capsule Effect */}
                   {isActive && (
                     <motion.div
-                      layoutId="activeNavUnderline"
-                      className="absolute bottom-0 left-0 w-full h-[2px] bg-foreground shadow-[0_0_8px_rgba(255,255,255,0.3)] z-0"
+                      layoutId="activeNavCapsule"
+                      className="absolute inset-0 bg-foreground/[0.04] dark:bg-white/[0.05] border border-foreground/[0.08] dark:border-white/[0.08] rounded-full z-0 flex items-end justify-center"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
+                    >
+                      {/* Premium Cyan Neon Glow Line */}
+                      <span className="w-4 h-[2px] rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.8)] absolute -bottom-[1px]" />
+                    </motion.div>
                   )}
                 </div>
               );

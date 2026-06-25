@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import HeroContent from "@/components/HeroContent";
 import HeroImage from "@/components/HeroImage";
 import CTAButtons from "@/components/CTAButtons";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import bgTechImg from "../../public/bg-tech.png";
 
 export default function Home() {
   const sectionVariants = {
@@ -28,6 +30,18 @@ export default function Home() {
       {/* Subtle Background Radial Gradients & Blur Blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute inset-0 bg-gradient-radial-light dark:bg-gradient-radial-dark transition-opacity duration-500" />
+
+        {/* Subtle Background Tech Image (highly blurred & blended) */}
+        <div className="absolute inset-0 opacity-12 dark:opacity-[0.06] mix-blend-screen dark:mix-blend-lighten pointer-events-none">
+          <Image
+            src={bgTechImg}
+            alt="Tech Background Pattern"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover filter blur-[50px] select-none scale-105"
+          />
+        </div>
 
         {/* Soft blur blob 1 */}
         <motion.div
@@ -146,7 +160,7 @@ export default function Home() {
       {/* ================= SECTION 2: ABOUT ME ================= */}
       <section
         id="about"
-        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-background/20"
+        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-card-bg/15"
       >
         <motion.div
           initial="hidden"
@@ -171,7 +185,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="lg:col-span-2 flex flex-col gap-6 text-lg font-light text-foreground/80 leading-relaxed p-8 rounded-[24px] border border-border-custom/50 bg-background/10 backdrop-blur-sm relative overflow-hidden"
+              className="lg:col-span-2 flex flex-col gap-6 text-lg font-light text-foreground/80 leading-relaxed p-8 rounded-[24px] border border-border-custom/50 bg-card-bg/30 backdrop-blur-sm relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-cyan-500/80 to-blue-500/80" />
               <p>
@@ -197,7 +211,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                 whileHover={{ y: -5 }}
-                className="group relative p-6 rounded-[20px] border border-border-custom bg-background/30 hover:border-foreground/20 backdrop-blur-sm transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group relative p-6 rounded-[20px] border border-border-custom bg-card-bg/50 hover:border-foreground/20 backdrop-blur-sm transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.03] dark:via-white/[0.03] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none" />
                 <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-foreground flex items-center">
@@ -231,7 +245,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 whileHover={{ y: -5 }}
-                className="group relative p-6 rounded-[20px] border border-border-custom bg-background/30 hover:border-foreground/20 backdrop-blur-sm transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group relative p-6 rounded-[20px] border border-border-custom bg-card-bg/50 hover:border-foreground/20 backdrop-blur-sm transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.03] dark:via-white/[0.03] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none" />
                 <h4 className="text-sm font-bold uppercase tracking-wider mb-2 text-foreground flex items-center">
@@ -259,7 +273,7 @@ export default function Home() {
                 y: -6,
                 shadow: "0 20px 40px rgba(0,0,0,0.05)"
               }}
-              className="group relative p-8 rounded-[24px] border border-border-custom bg-background/30 hover:border-foreground/20 backdrop-blur-sm flex flex-col md:flex-row justify-between gap-6 md:items-center cursor-pointer transition-all duration-500 overflow-hidden"
+              className="group relative p-8 rounded-[24px] border border-border-custom bg-card-bg/50 hover:border-foreground/20 backdrop-blur-sm flex flex-col md:flex-row justify-between gap-6 md:items-center cursor-pointer transition-all duration-500 overflow-hidden"
             >
               {/* Diagonal Laser Shimmer Effect */}
               <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.03] dark:via-white/[0.03] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none z-0" />
@@ -359,7 +373,7 @@ export default function Home() {
             ].map((category, idx) => (
               <div
                 key={idx}
-                className="p-8 border border-border-custom rounded-[20px] bg-background/30 backdrop-blur-sm flex flex-col gap-6"
+                className="p-8 border border-border-custom rounded-[20px] bg-card-bg/50 backdrop-blur-sm flex flex-col gap-6"
               >
                 <h3 className="text-lg font-bold tracking-tight text-foreground border-b border-border-custom/50 pb-3 uppercase">
                   {category.title}
@@ -392,7 +406,7 @@ export default function Home() {
       {/* ================= SECTION 4: ACHIEVEMENTS ================= */}
       <section
         id="achievements"
-        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-background/20"
+        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-card-bg/15"
       >
         <motion.div
           initial="hidden"
@@ -457,7 +471,7 @@ export default function Home() {
                   y: -10,
                   transition: { duration: 0.4, ease: "easeOut" }
                 }}
-                className={`group relative p-8 md:p-10 rounded-[24px] border border-border-custom bg-background/30 backdrop-blur-md flex flex-col gap-5 cursor-pointer overflow-hidden z-10 ${ach.borderColor} ${ach.glow}`}
+                className={`group relative p-8 md:p-10 rounded-[24px] border border-border-custom bg-card-bg/50 backdrop-blur-md flex flex-col gap-5 cursor-pointer overflow-hidden z-10 ${ach.borderColor} ${ach.glow}`}
               >
                 {/* Diagonal Laser Shimmer Effect on Hover */}
                 <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.04] dark:via-white/[0.04] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none z-0" />
@@ -497,7 +511,7 @@ export default function Home() {
       {/* ================= SECTION 5: CONTACT ================= */}
       <section
         id="contact"
-        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-background/20"
+        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-card-bg/15"
       >
         <motion.div
           initial="hidden"
@@ -534,7 +548,7 @@ export default function Home() {
                   href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/MY%20RESUME.pdf`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 rounded-full font-medium text-sm md:text-base border border-border-custom bg-background/40 hover:bg-background/80 hover:border-foreground/40 text-foreground transition-all duration-300 shadow-sm hover:shadow-lg text-center flex items-center justify-center min-w-[170px]"
+                  className="px-8 py-4 rounded-full font-medium text-sm md:text-base border border-border-custom bg-card-bg/40 hover:bg-card-bg/80 hover:border-foreground/40 text-foreground transition-all duration-300 shadow-sm hover:shadow-lg text-center flex items-center justify-center min-w-[170px]"
                 >
                   See Resume
                 </a>
@@ -544,7 +558,7 @@ export default function Home() {
             {/* Info Cards & Social Links */}
             <div className="flex flex-col gap-6">
               {/* Contact Details */}
-              <div className="p-6 rounded-[20px] border border-border-custom bg-background/30 backdrop-blur-sm flex flex-col gap-4 text-sm">
+              <div className="p-6 rounded-[20px] border border-border-custom bg-card-bg/50 backdrop-blur-sm flex flex-col gap-4 text-sm">
                 <div>
                   <span className="text-xs text-accent-muted uppercase block mb-1">Email Address</span>
                   <a
@@ -572,7 +586,7 @@ export default function Home() {
               </div>
 
               {/* Social Channels */}
-              <div className="p-6 rounded-[20px] border border-border-custom bg-background/30 backdrop-blur-sm text-sm">
+              <div className="p-6 rounded-[20px] border border-border-custom bg-card-bg/50 backdrop-blur-sm text-sm">
                 <span className="text-xs text-accent-muted uppercase block mb-3">Social Profiles</span>
                 <div className="flex flex-wrap gap-4">
                   {[

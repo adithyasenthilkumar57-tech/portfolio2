@@ -35,7 +35,7 @@ export default function ProjectsComingSoon() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative max-w-lg w-full p-8 md:p-12 rounded-[32px] border border-border-custom bg-background/30 backdrop-blur-xl shadow-2xl flex flex-col items-center justify-center text-center overflow-hidden border-t-4 border-t-cyan-500 group"
+        className="relative max-w-lg w-full p-8 md:p-12 rounded-[32px] border border-border-custom bg-card-bg/30 backdrop-blur-xl shadow-2xl flex flex-col items-center justify-center text-center overflow-hidden border-t-4 border-t-cyan-500 group"
       >
         {/* Corner Accents */}
         <span className="absolute top-3 left-3 text-cyan-500/30 font-mono text-sm pointer-events-none select-none">+</span>
