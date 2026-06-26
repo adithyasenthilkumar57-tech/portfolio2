@@ -28,6 +28,7 @@ export const metadata = {
   description: "Crafting modern web experiences, interactive interfaces, and premium digital products with pixel-perfect design and high-end performance.",
   keywords: [
     "Adithya",
+    "Adithya website",
     "Adithya Senthilkumar",
     "Creative Developer",
     "UI Engineer",
