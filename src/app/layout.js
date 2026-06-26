@@ -65,6 +65,9 @@ export const metadata = {
     description: "Crafting modern web experiences, interactive interfaces, and premium digital products with pixel-perfect design and high-end performance.",
     images: ["/portfolio2/portrait.webp"],
   },
+  verification: {
+    google: "U_yMdFzcIJVM5fLUBd21ZawzqZIAklRhXnbYST3bKsc",
+  },
 };
 
 const jsonLd = {
