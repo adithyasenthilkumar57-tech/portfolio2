@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, LazyMotion, domAnimation, m } from "framer-motion";
 import Header from "@/components/Header";
 import HeroContent from "@/components/HeroContent";
 import HeroImage from "@/components/HeroImage";
 import CTAButtons from "@/components/CTAButtons";
 import ScrollIndicator from "@/components/ScrollIndicator";
-import bgTechImg from "../../public/bg-tech.png";
+import bgTechImg from "../../public/bg-tech.webp";
 import AutoScrollButton from "@/components/AutoScrollButton";
 
 export default function Home() {
@@ -32,109 +32,114 @@ export default function Home() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute inset-0 bg-gradient-radial-light dark:bg-gradient-radial-dark transition-opacity duration-500" />
 
-        {/* Subtle Background Tech Image (highly blurred & blended) */}
+        {/* Subtle Background Tech Image (highly blurred & blended) — lazy loaded, not LCP */}
         <div className="absolute inset-0 opacity-12 dark:opacity-[0.06] mix-blend-screen dark:mix-blend-lighten pointer-events-none">
           <Image
             src={bgTechImg}
             alt="Tech Background Pattern"
             fill
-            priority
+            loading="lazy"
             sizes="100vw"
             className="object-cover filter blur-[50px] select-none scale-105"
           />
         </div>
 
-        {/* Soft blur blob 1 */}
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-blue-500/5 dark:bg-blue-500/2 blur-[120px]"
-        />
+        {/* Decorative background blobs — deferred via LazyMotion */}
+        <LazyMotion features={domAnimation}>
+          {/* Soft blur blob 1 */}
+          <m.div
+            animate={{
+              scale: [1, 1.15, 1],
+              x: [0, 50, 0],
+              y: [0, -30, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-blue-500/5 dark:bg-blue-500/2 blur-[120px]"
+          />
 
-        {/* Soft blur blob 2 */}
-        <motion.div
-          animate={{
-            scale: [1, 1.25, 1],
-            x: [0, -60, 0],
-            y: [0, 40, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[40%] -right-40 w-[600px] h-[600px] rounded-full bg-purple-500/5 dark:bg-purple-500/2 blur-[150px]"
-        />
+          {/* Soft blur blob 2 */}
+          <m.div
+            animate={{
+              scale: [1, 1.25, 1],
+              x: [0, -60, 0],
+              y: [0, 40, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-[40%] -right-40 w-[600px] h-[600px] rounded-full bg-purple-500/5 dark:bg-purple-500/2 blur-[150px]"
+          />
 
-        {/* Soft blur blob 3 */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            x: [0, 30, 0],
-            y: [0, 60, 0],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-blue-500/3 dark:bg-blue-500/2 blur-[140px]"
-        />
+          {/* Soft blur blob 3 */}
+          <m.div
+            animate={{
+              scale: [1, 1.1, 1],
+              x: [0, 30, 0],
+              y: [0, 60, 0],
+            }}
+            transition={{
+              duration: 22,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full bg-blue-500/3 dark:bg-blue-500/2 blur-[140px]"
+          />
+        </LazyMotion>
       </div>
 
-      {/* Decorative Floating Geometric Shapes (Opacity 0.05 - 0.1) */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-10">
-        {/* Circle shape top-left */}
-        <motion.div
-          animate={{
-            y: [0, -25, 0],
-            x: [0, 15, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[20%] left-[10%] w-8 h-8 rounded-full border border-foreground/10 opacity-5 md:opacity-10"
-        />
+      {/* Decorative Floating Geometric Shapes (Opacity 0.05 - 0.1) — deferred */}
+      <LazyMotion features={domAnimation}>
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-10">
+          {/* Circle shape top-left */}
+          <m.div
+            animate={{
+              y: [0, -25, 0],
+              x: [0, 15, 0],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-[20%] left-[10%] w-8 h-8 rounded-full border border-foreground/10 opacity-5 md:opacity-10"
+          />
 
-        {/* Square shape bottom-right */}
-        <motion.div
-          animate={{
-            y: [0, 30, 0],
-            x: [0, -20, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[80%] right-[15%] w-10 h-10 border border-foreground/10 opacity-5 md:opacity-10 rounded-sm"
-        />
+          {/* Square shape bottom-right */}
+          <m.div
+            animate={{
+              y: [0, 30, 0],
+              x: [0, -20, 0],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 14,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-[80%] right-[15%] w-10 h-10 border border-foreground/10 opacity-5 md:opacity-10 rounded-sm"
+          />
 
-        {/* Line Accent left */}
-        <motion.div
-          animate={{
-            y: [-10, 15, -10],
-            rotate: [-15, 15, -15],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[50%] left-[5%] w-12 h-[1px] bg-foreground/10 opacity-5 md:opacity-10"
-        />
-      </div>
+          {/* Line Accent left */}
+          <m.div
+            animate={{
+              y: [-10, 15, -10],
+              rotate: [-15, 15, -15],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-[50%] left-[5%] w-12 h-[1px] bg-foreground/10 opacity-5 md:opacity-10"
+          />
+        </div>
+      </LazyMotion>
 
       {/* ================= SECTION 1: HOME (HERO) ================= */}
       <section
@@ -286,9 +291,9 @@ export default function Home() {
 
               <div className="relative z-10">
                 <span className="text-xs font-mono text-accent-muted flex items-center mb-1.5">
-                  <span className="relative flex h-1.5 w-1.5 mr-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500" />
+                  <span className="relative inline-flex h-1.5 w-1.5 mr-2">
+                    <span className="animate-ping absolute inset-0 rounded-full bg-cyan-400 opacity-75" />
+                    <span className="relative rounded-full h-1.5 w-1.5 bg-cyan-500" />
                   </span>
                   2024 - 2028 // SAKTHI VIGNESHWARA KALVI NILAYAM
                 </span>
@@ -484,9 +489,9 @@ export default function Home() {
 
                 {/* Tech Badge Pill */}
                 <div className="relative z-10 flex items-center self-start px-3 py-1 rounded-full border border-border-custom/60 bg-foreground/[0.02] text-[10px] tracking-widest font-mono font-bold text-accent-muted">
-                  <span className="relative flex h-1.5 w-1.5 mr-2">
-                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${ach.dot} opacity-75`} />
-                    <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${ach.dot}`} />
+                  <span className="relative inline-flex h-1.5 w-1.5 mr-2">
+                    <span className={`animate-ping absolute inset-0 rounded-full ${ach.dot} opacity-75`} />
+                    <span className={`relative rounded-full h-1.5 w-1.5 ${ach.dot}`} />
                   </span>
                   {ach.tag}
                 </div>

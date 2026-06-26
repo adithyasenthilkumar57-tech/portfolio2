@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import portraitImg from "../../public/portrait.png";
+import portraitImg from "../../public/portrait.webp";
 
 export default function HeroImage() {
   return (
@@ -31,7 +31,7 @@ export default function HeroImage() {
           alt="Spurge - Creative Developer & UI Engineer"
           fill
           priority
-          sizes="(max-width: 768px) 100vw, 450px"
+          sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, (max-width: 1024px) 50vw, 450px"
           className="object-cover transition-transform duration-700 hover:scale-105"
         />
         {/* Soft vignette/editorial overlay */}
