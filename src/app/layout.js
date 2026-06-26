@@ -23,8 +23,81 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "Creative Developer & UI Engineer | Premium Portfolio",
+  metadataBase: new URL("https://adithyasenthilkumar57-tech.github.io"),
+  title: "Adithya | Creative Developer & UI Engineer | Portfolio",
   description: "Crafting modern web experiences, interactive interfaces, and premium digital products with pixel-perfect design and high-end performance.",
+  keywords: [
+    "Adithya",
+    "Adithya Senthilkumar",
+    "Creative Developer",
+    "UI Engineer",
+    "Web Developer",
+    "AI Student Portfolio",
+    "Machine Learning Developer",
+    "Portfolio Website",
+    "Tiruppur Web Developer",
+    "Sakthi Vigneshwara Kalvi Nilayam"
+  ],
+  authors: [{ name: "Adithya" }],
+  creator: "Adithya",
+  alternates: {
+    canonical: "https://adithyasenthilkumar57-tech.github.io/portfolio2/",
+  },
+  openGraph: {
+    title: "Adithya | Creative Developer & UI Engineer | Portfolio",
+    description: "Crafting modern web experiences, interactive interfaces, and premium digital products with pixel-perfect design and high-end performance.",
+    url: "https://adithyasenthilkumar57-tech.github.io/portfolio2/",
+    siteName: "Adithya Portfolio",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/portfolio2/portrait.webp",
+        width: 768,
+        height: 1024,
+        alt: "Adithya - Creative Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Adithya | Creative Developer & UI Engineer | Portfolio",
+    description: "Crafting modern web experiences, interactive interfaces, and premium digital products with pixel-perfect design and high-end performance.",
+    images: ["/portfolio2/portrait.webp"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Adithya",
+  "givenName": "Adithya",
+  "familyName": "Senthilkumar",
+  "url": "https://adithyasenthilkumar57-tech.github.io/portfolio2/",
+  "image": "https://adithyasenthilkumar57-tech.github.io/portfolio2/portrait.webp",
+  "jobTitle": "AI & Machine Learning Student & Web Developer",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Sakthi Vigneshwara Kalvi Nilayam"
+  },
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Web Development",
+    "UI/UX Design",
+    "JavaScript",
+    "HTML & CSS",
+    "Git & GitHub"
+  ],
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Tiruppur, Tamil Nadu, India"
+  },
+  "sameAs": [
+    "https://github.com/adithyasenthilkumar57-tech",
+    "https://linkedin.com",
+    "https://instagram.com"
+  ]
 };
 
 export default function RootLayout({ children }) {
@@ -47,6 +120,10 @@ export default function RootLayout({ children }) {
               })();
             `,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body

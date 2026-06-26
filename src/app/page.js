@@ -37,6 +37,7 @@ export default function Home() {
           <Image
             src={bgTechImg}
             alt="Tech Background Pattern"
+            title="Adithya Portfolio Tech Background Pattern"
             fill
             loading="lazy"
             sizes="100vw"
@@ -220,10 +221,10 @@ export default function Home() {
                 className="group relative p-6 rounded-[20px] border border-border-custom bg-card-bg/50 hover:border-foreground/20 backdrop-blur-sm transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.03] dark:via-white/[0.03] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none" />
-                <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-foreground flex items-center">
+                <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-foreground flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-2" />
                   Personal Strengths
-                </h4>
+                </h3>
                 <div className="flex flex-wrap gap-2 relative z-10">
                   {[
                     "Creative Thinking",
@@ -254,10 +255,10 @@ export default function Home() {
                 className="group relative p-6 rounded-[20px] border border-border-custom bg-card-bg/50 hover:border-foreground/20 backdrop-blur-sm transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.03] dark:via-white/[0.03] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none" />
-                <h4 className="text-sm font-bold uppercase tracking-wider mb-2 text-foreground flex items-center">
+                <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-foreground flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2" />
                   Languages
-                </h4>
+                </h3>
                 <p className="text-sm text-accent-muted relative z-10 font-medium">
                   English, Tamil, Kannada
                 </p>
@@ -596,7 +597,7 @@ export default function Home() {
                 <span className="text-xs text-accent-muted uppercase block mb-3">Social Profiles</span>
                 <div className="flex flex-wrap gap-4">
                   {[
-                    { label: "GitHub", url: "https://github.com" },
+                    { label: "GitHub", url: "https://github.com/adithyasenthilkumar57-tech" },
                     { label: "LinkedIn", url: "https://linkedin.com" },
                     { label: "Instagram Portfolio", url: "https://instagram.com" }
                   ].map((social, i) => (
@@ -605,6 +606,7 @@ export default function Home() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      title={`Visit Adithya's ${social.label}`}
                       className="text-xs font-semibold uppercase tracking-wider text-foreground hover:text-accent-muted transition-colors duration-300"
                     >
                       {social.label}

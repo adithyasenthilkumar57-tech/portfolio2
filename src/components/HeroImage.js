@@ -28,7 +28,8 @@ export default function HeroImage() {
       >
         <Image
           src={portraitImg}
-          alt="Spurge - Creative Developer & UI Engineer"
+          alt="Adithya - AI & Machine Learning Student & Web Developer"
+          title="Adithya - Creative Developer & UI Engineer"
           fill
           priority
           sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, (max-width: 1024px) 50vw, 450px"
