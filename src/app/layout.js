@@ -99,7 +99,7 @@ const jsonLd = {
   },
   "sameAs": [
     "https://github.com/adithyasenthilkumar57-tech",
-    "https://linkedin.com",
+    "https://www.linkedin.com/in/adithya-s-6b5427378",
     "https://instagram.com"
   ]
 };

@@ -598,7 +598,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4">
                   {[
                     { label: "GitHub", url: "https://github.com/adithyasenthilkumar57-tech" },
-                    { label: "LinkedIn", url: "https://linkedin.com" },
+                    { label: "LinkedIn", url: "https://www.linkedin.com/in/adithya-s-6b5427378" },
                     { label: "Instagram Portfolio", url: "https://instagram.com" }
                   ].map((social, i) => (
                     <a
