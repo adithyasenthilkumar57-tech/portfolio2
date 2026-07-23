@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, LazyMotion, domAnimation, m } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/Header";
 import HeroContent from "@/components/HeroContent";
 import HeroImage from "@/components/HeroImage";
@@ -410,7 +411,126 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ================= SECTION 4: ACHIEVEMENTS ================= */}
+      {/* ================= SECTION 4: PROJECTS ================= */}
+      <section
+        id="projects"
+        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-card-bg/15"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-20%" }}
+          variants={sectionVariants}
+          className="w-full max-w-5xl flex flex-col gap-12"
+        >
+          <div className="flex flex-col gap-4">
+            <span className="text-xs md:text-sm font-semibold tracking-[0.3em] text-accent-muted uppercase">
+              03 // FEATURED WORK
+            </span>
+            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-foreground uppercase">
+              PROJECTS & INNOVATIONS
+            </h2>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            {/* Featured Project Card: Freelancer Lead Radar */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              whileHover={{ y: -6 }}
+              className="group relative rounded-[32px] border border-border-custom bg-card-bg/40 backdrop-blur-xl p-8 md:p-12 overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer border-t-4 border-t-cyan-500 hover:border-t-cyan-400 hover:shadow-[0_20px_50px_rgba(34,211,238,0.15)]"
+              onClick={() => window.open("https://flr-rouge.vercel.app/", "_blank")}
+            >
+              {/* Background Glow */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500" />
+
+              {/* Diagonal Laser Shimmer Effect on Hover */}
+              <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.04] dark:via-white/[0.04] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none z-0" />
+
+              {/* Watermark text */}
+              <div className="absolute right-6 bottom-4 text-8xl font-black text-foreground/[0.03] dark:text-white/[0.02] select-none pointer-events-none font-mono z-0">
+                FLR
+              </div>
+
+              <div className="relative z-10 flex flex-col gap-6">
+                {/* Header row: Badge + Link button */}
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="flex items-center px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-bold tracking-widest uppercase">
+                      <span className="relative flex h-2 w-2 mr-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
+                      </span>
+                      AI RADAR ACTIVE
+                    </span>
+                    <span className="text-xs font-mono text-accent-muted hidden sm:inline">
+                      LIVE SAAS PLATFORM
+                    </span>
+                  </div>
+
+                  <a
+                    href="https://flr-rouge.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold bg-foreground text-background transition-all duration-300 hover:scale-105 shadow-md group-hover:shadow-cyan-500/20"
+                  >
+                    <span>View Live Project</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {/* Title & Subtitle */}
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-foreground group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300 flex items-center gap-3">
+                    Freelancer Lead Radar (FLR)
+                  </h3>
+                  <p className="text-sm md:text-base font-medium text-cyan-600 dark:text-cyan-400">
+                    The AI that finds your next client before your competitors do
+                  </p>
+                </div>
+
+                {/* Main Description */}
+                <p className="text-base text-foreground/80 font-light leading-relaxed max-w-3xl">
+                  Stop hunting for clients. Freelancer Lead Radar scans the web 24/7 to uncover businesses desperately needing your specific digital services — ranked by AI match score, equipped with 1-click personalized cold outreach, and tracked in a full CRM pipeline.
+                </p>
+
+                {/* Highlights Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-2">
+                  <div className="p-4 rounded-2xl border border-border-custom/50 bg-foreground/[0.02] backdrop-blur-sm">
+                    <div className="text-xl font-bold text-foreground">24/7 Radar</div>
+                    <div className="text-xs text-accent-muted">Continuous Web Scouting</div>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-border-custom/50 bg-foreground/[0.02] backdrop-blur-sm">
+                    <div className="text-xl font-bold text-foreground">94% Accuracy</div>
+                    <div className="text-xs text-accent-muted">AI Lead Scoring Engine</div>
+                  </div>
+                  <div className="p-4 rounded-2xl border border-border-custom/50 bg-foreground/[0.02] backdrop-blur-sm">
+                    <div className="text-xl font-bold text-foreground">1-Click Pitch</div>
+                    <div className="text-xs text-accent-muted">Automated Cold Outreach</div>
+                  </div>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-border-custom/50">
+                  {["Next.js", "React", "AI Scouting Engine", "Lead Generation", "Tailwind CSS", "CRM Pipeline"].map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-3 py-1 rounded-md bg-foreground/[0.04] border border-border-custom/50 text-accent-muted font-mono"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ================= SECTION 5: ACHIEVEMENTS ================= */}
       <section
         id="achievements"
         className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-card-bg/15"
@@ -424,7 +544,7 @@ export default function Home() {
         >
           <div className="flex flex-col gap-4">
             <span className="text-xs md:text-sm font-semibold tracking-[0.3em] text-accent-muted uppercase">
-              03 // LANDMARKS
+              04 // LANDMARKS
             </span>
             <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-foreground uppercase">
               ACHIEVEMENTS & EXPERIENCES

@@ -11,7 +11,7 @@ export default function CTAButtons() {
       className="flex flex-wrap gap-4 items-center mt-4 w-full sm:w-auto"
     >
       <motion.a
-        href="#skills"
+        href="#projects"
         className="px-8 py-4 rounded-full font-medium text-sm md:text-base border border-transparent bg-foreground text-background transition-shadow duration-300 shadow-md shadow-foreground/5 hover:shadow-xl hover:shadow-foreground/10 text-center flex items-center justify-center min-w-[150px] cursor-pointer"
         whileHover={{ y: -4, scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
