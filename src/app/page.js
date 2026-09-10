@@ -414,118 +414,235 @@ export default function Home() {
       {/* ================= SECTION 4: PROJECTS ================= */}
       <section
         id="projects"
-        className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-card-bg/15"
+        className="relative w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 border-t border-border-custom/50 bg-card-bg/15"
       >
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-20%" }}
           variants={sectionVariants}
-          className="w-full max-w-5xl flex flex-col gap-12"
+          className="w-full max-w-6xl flex flex-col gap-12"
         >
-          <div className="flex flex-col gap-4">
-            <span className="text-xs md:text-sm font-semibold tracking-[0.3em] text-accent-muted uppercase">
-              03 // FEATURED WORK
-            </span>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-foreground uppercase">
-              PROJECTS & INNOVATIONS
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div className="flex flex-col gap-4">
+              <span className="text-xs md:text-sm font-semibold tracking-[0.3em] text-accent-muted uppercase">
+                03 // FEATURED WORK
+              </span>
+              <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-foreground uppercase">
+                PROJECTS &amp; INNOVATIONS
+              </h2>
+            </div>
+            <a
+              href="/projects"
+              className="self-start md:self-end inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold border border-border-custom bg-card-bg/40 hover:bg-card-bg/80 text-foreground transition-all duration-300 hover:border-foreground/30 shrink-0"
+            >
+              View All Projects <ArrowUpRight className="w-4 h-4" />
+            </a>
           </div>
 
-          <div className="flex flex-col gap-8">
-            {/* Featured Project Card: Freelancer Lead Radar */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              whileHover={{ y: -6 }}
-              className="group relative rounded-[32px] border border-border-custom bg-card-bg/40 backdrop-blur-xl p-8 md:p-12 overflow-hidden shadow-2xl transition-all duration-500 cursor-pointer border-t-4 border-t-cyan-500 hover:border-t-cyan-400 hover:shadow-[0_20px_50px_rgba(34,211,238,0.15)]"
-              onClick={() => window.open("https://flr-rouge.vercel.app/", "_blank")}
-            >
-              {/* Background Glow */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500" />
+          {/* Projects Grid — 2 columns on md, 3 on lg */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Freelancer Lead Radar",
+                abbr: "FLR",
+                subtitle: "AI-Powered Lead Generation SaaS",
+                desc: "Scans the web 24/7 to find businesses needing your services, ranks leads by AI score, and sends 1-click cold outreach with CRM pipeline tracking.",
+                url: "https://flr-rouge.vercel.app/",
+                badge: "AI RADAR",
+                badgeColor: "border-cyan-500/30 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
+                topBorder: "border-t-cyan-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(34,211,238,0.15)]",
+                dot: "bg-cyan-500",
+                tags: ["Next.js", "AI", "SaaS", "CRM"],
+                ping: "bg-cyan-400"
+              },
+              {
+                title: "Cresconix",
+                abbr: "CRX",
+                subtitle: "Digital Agency & Solutions",
+                desc: "A premium digital agency website showcasing services, portfolio, and client solutions with modern design and seamless user experience.",
+                url: "https://cresconix.vercel.app/",
+                badge: "AGENCY",
+                badgeColor: "border-purple-500/30 bg-purple-500/10 text-purple-600 dark:text-purple-400",
+                topBorder: "border-t-purple-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(168,85,247,0.15)]",
+                dot: "bg-purple-500",
+                tags: ["Next.js", "UI/UX", "Agency"],
+                ping: "bg-purple-400"
+              },
+              {
+                title: "AgriTech Platform",
+                abbr: "AGR",
+                subtitle: "Smart Agriculture Solutions",
+                desc: "A modern agriculture technology platform connecting farmers with AI-powered insights, crop analytics, and sustainable farming guidance.",
+                url: "https://agriculture2-3xga.vercel.app/",
+                badge: "AGRITECH",
+                badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+                topBorder: "border-t-emerald-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)]",
+                dot: "bg-emerald-500",
+                tags: ["React", "AI", "Agriculture"],
+                ping: "bg-emerald-400"
+              },
+              {
+                title: "WhatsApp Automation",
+                abbr: "WA",
+                subtitle: "Business Messaging Automation",
+                desc: "Automated WhatsApp messaging platform for businesses — schedule campaigns, auto-reply bots, and track message analytics in real time.",
+                url: "https://whatsapp-automation-five-alpha.vercel.app/",
+                badge: "AUTOMATION",
+                badgeColor: "border-green-500/30 bg-green-500/10 text-green-600 dark:text-green-400",
+                topBorder: "border-t-green-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(34,197,94,0.15)]",
+                dot: "bg-green-500",
+                tags: ["Node.js", "WhatsApp API", "Bot"],
+                ping: "bg-green-400"
+              },
+              {
+                title: "Cafe Model",
+                abbr: "CAF",
+                subtitle: "Restaurant & Menu Platform",
+                desc: "An elegant cafe and restaurant showcase website with dynamic menu, reservation system, and immersive visual storytelling for hospitality brands.",
+                url: "https://cafemodel-kopl.vercel.app/",
+                badge: "HOSPITALITY",
+                badgeColor: "border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400",
+                topBorder: "border-t-amber-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(245,158,11,0.15)]",
+                dot: "bg-amber-500",
+                tags: ["React", "UI/UX", "Restaurant"],
+                ping: "bg-amber-400"
+              },
+              {
+                title: "Titan Alpha",
+                abbr: "TIT",
+                subtitle: "Modern Portfolio & Brand Site",
+                desc: "A bold, cinematic brand and portfolio site combining striking typography, motion design, and immersive scroll experiences for premium clients.",
+                url: "https://titan-alpha-nine.vercel.app/",
+                badge: "BRANDING",
+                badgeColor: "border-orange-500/30 bg-orange-500/10 text-orange-600 dark:text-orange-400",
+                topBorder: "border-t-orange-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(249,115,22,0.15)]",
+                dot: "bg-orange-500",
+                tags: ["Next.js", "Branding", "Motion"],
+                ping: "bg-orange-400"
+              },
+              {
+                title: "Developer Portfolio",
+                abbr: "PRT",
+                subtitle: "Personal Portfolio Website",
+                desc: "A sleek developer portfolio showcasing projects, skills, and achievements with smooth animations and a professional, minimal aesthetic.",
+                url: "https://portfolio-website-mhle.vercel.app/",
+                badge: "PORTFOLIO",
+                badgeColor: "border-sky-500/30 bg-sky-500/10 text-sky-600 dark:text-sky-400",
+                topBorder: "border-t-sky-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(14,165,233,0.15)]",
+                dot: "bg-sky-500",
+                tags: ["React", "Portfolio", "Animations"],
+                ping: "bg-sky-400"
+              },
+              {
+                title: "LinkedIn Clone",
+                abbr: "LNK",
+                subtitle: "Professional Network Platform",
+                desc: "A full-featured LinkedIn-inspired social platform with user authentication, admin dashboard, profile management, and professional networking.",
+                url: "https://linkedin-emxl.vercel.app/login?from=%2Fadmin",
+                badge: "SOCIAL",
+                badgeColor: "border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400",
+                topBorder: "border-t-blue-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)]",
+                dot: "bg-blue-500",
+                tags: ["Next.js", "Auth", "Social Network"],
+                ping: "bg-blue-400"
+              },
+              {
+                title: "WhatsApp Bot Pro",
+                abbr: "WBP",
+                subtitle: "Advanced Messaging Automation",
+                desc: "Enhanced WhatsApp automation suite with advanced bot flows, multi-account management, analytics dashboard, and broadcast scheduling.",
+                url: "https://whatsapp-automation-five-alpha.vercel.app/",
+                badge: "BOT PRO",
+                badgeColor: "border-teal-500/30 bg-teal-500/10 text-teal-600 dark:text-teal-400",
+                topBorder: "border-t-teal-500",
+                glow: "hover:shadow-[0_20px_50px_rgba(20,184,166,0.15)]",
+                dot: "bg-teal-500",
+                tags: ["Node.js", "API", "Dashboard"],
+                ping: "bg-teal-400"
+              }
+            ].map((project, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.08, ease: "easeOut" }}
+                whileHover={{ y: -6 }}
+                className={`group relative rounded-[24px] border border-border-custom bg-card-bg/40 backdrop-blur-xl p-6 overflow-hidden shadow-xl transition-all duration-500 cursor-pointer border-t-4 ${project.topBorder} ${project.glow}`}
+                onClick={() => window.open(project.url, "_blank")}
+              >
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.03] dark:via-white/[0.03] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none z-0" />
 
-              {/* Diagonal Laser Shimmer Effect on Hover */}
-              <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-foreground/[0.04] dark:via-white/[0.04] to-transparent -skew-x-12 translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000 ease-out pointer-events-none z-0" />
+                {/* Watermark */}
+                <div className="absolute right-4 bottom-3 text-6xl font-black text-foreground/[0.03] dark:text-white/[0.02] select-none pointer-events-none font-mono z-0">
+                  {project.abbr}
+                </div>
 
-              {/* Watermark text */}
-              <div className="absolute right-6 bottom-4 text-8xl font-black text-foreground/[0.03] dark:text-white/[0.02] select-none pointer-events-none font-mono z-0">
-                FLR
-              </div>
-
-              <div className="relative z-10 flex flex-col gap-6">
-                {/* Header row: Badge + Link button */}
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-bold tracking-widest uppercase">
-                      <span className="relative flex h-2 w-2 mr-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
+                <div className="relative z-10 flex flex-col gap-4 h-full">
+                  {/* Badge + Link */}
+                  <div className="flex items-center justify-between gap-2">
+                    <span className={`flex items-center px-2.5 py-1 rounded-full border text-[10px] font-mono font-bold tracking-widest uppercase ${project.badgeColor}`}>
+                      <span className="relative flex h-1.5 w-1.5 mr-1.5">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${project.ping} opacity-75`} />
+                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${project.dot}`} />
                       </span>
-                      AI RADAR ACTIVE
+                      {project.badge}
                     </span>
-                    <span className="text-xs font-mono text-accent-muted hidden sm:inline">
-                      LIVE SAAS PLATFORM
-                    </span>
-                  </div>
-
-                  <a
-                    href="https://flr-rouge.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold bg-foreground text-background transition-all duration-300 hover:scale-105 shadow-md group-hover:shadow-cyan-500/20"
-                  >
-                    <span>View Live Project</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
-
-                {/* Title & Subtitle */}
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight text-foreground group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300 flex items-center gap-3">
-                    Freelancer Lead Radar (FLR)
-                  </h3>
-                  <p className="text-sm md:text-base font-medium text-cyan-600 dark:text-cyan-400">
-                    The AI that finds your next client before your competitors do
-                  </p>
-                </div>
-
-                {/* Main Description */}
-                <p className="text-base text-foreground/80 font-light leading-relaxed max-w-3xl">
-                  Stop hunting for clients. Freelancer Lead Radar scans the web 24/7 to uncover businesses desperately needing your specific digital services — ranked by AI match score, equipped with 1-click personalized cold outreach, and tracked in a full CRM pipeline.
-                </p>
-
-                {/* Highlights Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-2">
-                  <div className="p-4 rounded-2xl border border-border-custom/50 bg-foreground/[0.02] backdrop-blur-sm">
-                    <div className="text-xl font-bold text-foreground">24/7 Radar</div>
-                    <div className="text-xs text-accent-muted">Continuous Web Scouting</div>
-                  </div>
-                  <div className="p-4 rounded-2xl border border-border-custom/50 bg-foreground/[0.02] backdrop-blur-sm">
-                    <div className="text-xl font-bold text-foreground">94% Accuracy</div>
-                    <div className="text-xs text-accent-muted">AI Lead Scoring Engine</div>
-                  </div>
-                  <div className="p-4 rounded-2xl border border-border-custom/50 bg-foreground/[0.02] backdrop-blur-sm">
-                    <div className="text-xl font-bold text-foreground">1-Click Pitch</div>
-                    <div className="text-xs text-accent-muted">Automated Cold Outreach</div>
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-border-custom/50">
-                  {["Next.js", "React", "AI Scouting Engine", "Lead Generation", "Tailwind CSS", "CRM Pipeline"].map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-3 py-1 rounded-md bg-foreground/[0.04] border border-border-custom/50 text-accent-muted font-mono"
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 p-2 rounded-full border border-border-custom bg-foreground/[0.03] hover:bg-foreground hover:text-background text-foreground transition-all duration-300 hover:scale-110"
                     >
-                      #{tag}
-                    </span>
-                  ))}
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* Title */}
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-lg font-extrabold tracking-tight text-foreground group-hover:text-accent transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs font-medium text-accent-muted">{project.subtitle}</p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-foreground/70 font-light leading-relaxed flex-1">
+                    {project.desc}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border-custom/50">
+                    {project.tags.map((tag, ti) => (
+                      <span key={ti} className="text-[10px] px-2 py-0.5 rounded-md bg-foreground/[0.04] border border-border-custom/50 text-accent-muted font-mono">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* View All CTA */}
+          <div className="flex justify-center">
+            <a
+              href="/projects"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm border border-border-custom bg-card-bg/40 hover:bg-foreground hover:text-background text-foreground transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-lg"
+            >
+              Explore All Projects <ArrowUpRight className="w-4 h-4" />
+            </a>
           </div>
         </motion.div>
       </section>

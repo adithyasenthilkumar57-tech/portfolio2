@@ -68,8 +68,8 @@ export default function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-            ? "py-4 bg-background/50 border-b border-border-custom shadow-lg shadow-black/[0.02] backdrop-blur-xl"
-            : "py-6 bg-transparent border-b border-transparent"
+          ? "py-4 bg-background/50 border-b border-border-custom shadow-lg shadow-black/[0.02] backdrop-blur-xl"
+          : "py-6 bg-transparent border-b border-transparent"
           }`}
       >
         <div className="relative max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-12">
