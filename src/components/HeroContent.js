@@ -7,22 +7,19 @@ export default function HeroContent() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.12 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 35 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 60,
-        damping: 14,
-        duration: 0.8,
+        stiffness: 55,
+        damping: 13,
       },
     },
   };
@@ -36,21 +33,21 @@ export default function HeroContent() {
     >
       <motion.span
         variants={itemVariants}
-        className="text-xs md:text-sm font-semibold tracking-[0.3em] text-accent-muted uppercase"
+        className="text-xs md:text-sm font-semibold tracking-[0.35em] text-accent-primary uppercase"
       >
         HELLO, I&apos;M
       </motion.span>
 
       <motion.h1
         variants={itemVariants}
-        className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-accent uppercase leading-[0.9] flex flex-col"
+        className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter uppercase leading-[0.9] flex flex-col gap-2"
       >
-        <span className="text-foreground font-black">ADITHYA</span>
-        <span className="text-accent-muted font-light mt-2 text-2xl md:text-3xl lg:text-4xl tracking-tight leading-tight normal-case">
-          AI & Machine Learning Student
+        <span className="gradient-text font-black">ADITHYA</span>
+        <span className="text-foreground/50 font-light text-2xl md:text-3xl lg:text-4xl tracking-tight normal-case leading-tight">
+          AI &amp; Machine Learning Student
         </span>
-        <span className="text-accent-muted font-light text-2xl md:text-3xl lg:text-4xl tracking-tight leading-tight normal-case">
-          Web Developer & Experience Builder
+        <span className="text-accent-muted font-light text-2xl md:text-3xl lg:text-4xl tracking-tight normal-case leading-tight">
+          Web Developer &amp; Experience Builder
         </span>
       </motion.h1>
 
@@ -60,11 +57,7 @@ export default function HeroContent() {
           visible: {
             opacity: 1,
             y: 0,
-            transition: {
-              delay: 0.25,
-              duration: 0.8,
-              ease: "easeOut",
-            },
+            transition: { delay: 0.28, duration: 0.8, ease: "easeOut" },
           },
         }}
         initial="hidden"
@@ -78,26 +71,23 @@ export default function HeroContent() {
       <motion.div
         variants={{
           hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: { delay: 0.4, duration: 0.8 }
-          }
+          visible: { opacity: 1, transition: { delay: 0.4, duration: 0.8 } },
         }}
         initial="hidden"
         animate="visible"
-        className="flex flex-wrap gap-2 mt-4 max-w-[500px]"
+        className="flex flex-wrap gap-2 mt-4 max-w-[520px]"
       >
         {[
-          "AI & Machine Learning",
-          "Web Development",
-          "UI/UX Design",
-          "3D Digital Experiences"
+          { label: "AI & Machine Learning", color: "border-violet-400/30 bg-violet-500/[0.06] text-violet-600 dark:text-violet-400 dark:border-violet-400/30" },
+          { label: "Web Development", color: "border-cyan-400/30 bg-cyan-500/[0.06] text-cyan-600 dark:text-cyan-400 dark:border-cyan-400/30" },
+          { label: "UI/UX Design", color: "border-pink-400/30 bg-pink-500/[0.06] text-pink-600 dark:text-pink-400 dark:border-pink-400/30" },
+          { label: "3D Digital Experiences", color: "border-amber-400/30 bg-amber-500/[0.06] text-amber-600 dark:text-amber-400 dark:border-amber-400/30" },
         ].map((tag, i) => (
           <span
             key={i}
-            className="text-[10px] md:text-xs font-medium tracking-wide uppercase px-3 py-1.5 rounded-full border border-border-custom bg-foreground/[0.02] text-accent-muted"
+            className={`tag-pill text-[10px] md:text-xs font-semibold tracking-wide uppercase px-3 py-1.5 rounded-full border ${tag.color}`}
           >
-            {tag}
+            {tag.label}
           </span>
         ))}
       </motion.div>

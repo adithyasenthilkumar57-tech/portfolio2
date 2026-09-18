@@ -7,26 +7,27 @@ export default function CTAButtons() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.45, duration: 0.8, ease: "easeOut" }}
+      transition={{ delay: 0.48, duration: 0.8, ease: "easeOut" }}
       className="flex flex-wrap gap-4 items-center mt-4 w-full sm:w-auto"
     >
       <motion.a
         href="#projects"
-        className="px-8 py-4 rounded-full font-medium text-sm md:text-base border border-transparent bg-foreground text-background transition-shadow duration-300 shadow-md shadow-foreground/5 hover:shadow-xl hover:shadow-foreground/10 text-center flex items-center justify-center min-w-[150px] cursor-pointer"
-        whileHover={{ y: -4, scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
+        className="btn-gradient relative px-8 py-4 rounded-full font-semibold text-sm md:text-base shadow-lg text-center flex items-center justify-center min-w-[155px] cursor-pointer"
+        whileHover={{ y: -4, scale: 1.04 }}
+        whileTap={{ scale: 0.97 }}
       >
-        Explore My Work
+        <span className="relative z-10">Explore My Work</span>
       </motion.a>
 
       <motion.a
         href="#contact"
-        className="px-8 py-4 rounded-full font-medium text-sm md:text-base border border-border-custom bg-card-bg/40 hover:bg-card-bg/80 hover:border-foreground/40 text-foreground transition-all duration-300 shadow-sm hover:shadow-lg text-center flex items-center justify-center min-w-[150px] cursor-pointer"
-        whileHover={{ y: -4, scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
+        className="px-8 py-4 rounded-full font-semibold text-sm md:text-base border border-border-custom bg-card-bg/50 hover:bg-card-bg/80 hover:border-violet-400/40 text-foreground transition-all duration-300 shadow-sm hover:shadow-lg text-center flex items-center justify-center min-w-[155px] cursor-pointer backdrop-blur-md"
+        whileHover={{ y: -4, scale: 1.04 }}
+        whileTap={{ scale: 0.97 }}
       >
         Contact Me
       </motion.a>
     </motion.div>
   );
 }
+

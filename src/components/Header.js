@@ -111,11 +111,11 @@ export default function Header() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavCapsule"
-                      className="absolute inset-0 bg-foreground/[0.04] dark:bg-white/[0.05] border border-foreground/[0.08] dark:border-white/[0.08] rounded-full z-0 flex items-end justify-center"
+                      className="absolute inset-0 bg-violet-500/[0.06] dark:bg-violet-400/[0.08] border border-violet-500/[0.15] dark:border-violet-400/[0.2] rounded-full z-0 flex items-end justify-center"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     >
-                      {/* Premium Cyan Neon Glow Line */}
-                      <span className="w-4 h-[2px] rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.8)] absolute -bottom-[1px]" />
+                      {/* Premium Violet-Cyan Glow Line */}
+                      <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 shadow-[0_0_8px_rgba(124,58,237,0.7)] absolute -bottom-[1px]" />
                     </motion.div>
                   )}
                 </div>
@@ -180,7 +180,7 @@ export default function Header() {
                       {isActive && (
                         <motion.span
                           layoutId="mobileActiveBullet"
-                          className="w-2 h-2 rounded-full bg-foreground"
+                          className="w-2 h-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 shadow-[0_0_6px_rgba(124,58,237,0.6)]"
                         />
                       )}
                     </motion.button>
