@@ -71,6 +71,36 @@ export default function Home() {
 
   const projects = [
     {
+      title: "OPS 3.0",
+      abbr: "OPS",
+      subtitle: "Autonomous Operations Platform",
+      desc: "Qualified leads, recovered revenue, and scheduled conversations — all in one intelligent workspace with autonomous AI operations.",
+      url: "https://expo2-delta.vercel.app",
+      badge: "AUTONOMOUS OPS",
+      badgeColor: "border-indigo-500/30 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
+      topBorder: "border-t-indigo-500",
+      glow: "hover:shadow-[0_20px_60px_rgba(99,102,241,0.18)]",
+      dot: "bg-indigo-500",
+      tags: ["Next.js", "AI Platform", "Automation", "CRM"],
+      ping: "bg-indigo-400",
+      gradient: "from-indigo-500/5 to-transparent"
+    },
+    {
+      title: "Clearway AI",
+      abbr: "CWY",
+      subtitle: "Quantum Traffic Intelligence",
+      desc: "Adaptive urban traffic control system featuring quantum-inspired signal scheduling, automated emergency corridors, and real-time predictive congestion modeling.",
+      url: "https://stars2.vercel.app/",
+      badge: "QUANTUM AI",
+      badgeColor: "border-sky-500/30 bg-sky-500/10 text-sky-600 dark:text-sky-400",
+      topBorder: "border-t-sky-500",
+      glow: "hover:shadow-[0_20px_60px_rgba(14,165,233,0.18)]",
+      dot: "bg-sky-500",
+      tags: ["React", "AI / ML", "Quantum", "Smart City"],
+      ping: "bg-sky-400",
+      gradient: "from-sky-500/5 to-transparent"
+    },
+    {
       title: "Freelancer Lead Radar",
       abbr: "FLR",
       subtitle: "AI-Powered Lead Generation SaaS",

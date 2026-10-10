@@ -8,6 +8,36 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 const projects = [
   {
+    title: "OPS 3.0",
+    abbr: "OPS",
+    subtitle: "Autonomous Operations Platform",
+    badge: "AUTONOMOUS OPS",
+    badgeColor: "border-indigo-500/30 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
+    topBorder: "border-t-indigo-500",
+    glow: "hover:shadow-[0_20px_60px_rgba(99,102,241,0.18)]",
+    dot: "bg-indigo-500",
+    ping: "bg-indigo-400",
+    url: "https://expo2-delta.vercel.app",
+    desc: "An intelligent autonomous operations platform bringing qualified leads, recovered revenue, and scheduled conversations into one unified workspace with automated workflows.",
+    tags: ["Next.js", "AI Platform", "Automation", "CRM", "Vercel"],
+    highlights: ["Autonomous Workflows", "Lead Qualification", "Revenue Recovery", "Conversation Scheduling"]
+  },
+  {
+    title: "Clearway AI",
+    abbr: "CWY",
+    subtitle: "Quantum Traffic Intelligence Platform",
+    badge: "QUANTUM AI",
+    badgeColor: "border-sky-500/30 bg-sky-500/10 text-sky-600 dark:text-sky-400",
+    topBorder: "border-t-sky-500",
+    glow: "hover:shadow-[0_20px_60px_rgba(14,165,233,0.18)]",
+    dot: "bg-sky-500",
+    ping: "bg-sky-400",
+    url: "https://stars2.vercel.app/",
+    desc: "A connected control surface for adaptive urban traffic management. Features quantum-inspired traffic signal optimization, automated emergency vehicle green corridors, real-time acoustic siren detection, and predictive congestion simulation.",
+    tags: ["React", "AI / ML", "Quantum Computing", "Smart City", "Computer Vision", "Vercel"],
+    highlights: ["Quantum Signal Optimizer", "Emergency Corridors", "Acoustic Siren Detection", "Predictive Traffic Lab"]
+  },
+  {
     title: "Freelancer Lead Radar",
     abbr: "FLR",
     subtitle: "AI-Powered Lead Generation SaaS",
