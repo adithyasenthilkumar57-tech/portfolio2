@@ -1,12 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import portraitImg from "../../public/portrait.webp";
 
 export default function HeroImage() {
   return (
-    <div className="relative flex items-center justify-center w-full max-w-[380px] sm:max-w-[420px] md:w-[420px] md:h-[560px] z-20">
+    <div className="relative flex items-center justify-center w-full max-w-[340px] sm:max-w-[380px] md:max-w-none md:w-[420px] aspect-[3/4] md:h-[560px] z-20">
       {/* Outer Glow Ring */}
       <div className="absolute inset-[-12px] rounded-[36px] bg-gradient-to-br from-violet-500/20 via-cyan-500/15 to-pink-500/20 blur-[20px] pointer-events-none" />
 
@@ -21,7 +18,7 @@ export default function HeroImage() {
           fill
           priority
           fetchPriority="high"
-          sizes="(max-width: 480px) 320px, (max-width: 768px) 380px, 420px"
+          sizes="(max-width: 480px) 340px, (max-width: 768px) 380px, 420px"
           className="object-cover transition-transform duration-700 hover:scale-105"
         />
         {/* Gradient Overlay — editorial vignette */}
@@ -29,29 +26,22 @@ export default function HeroImage() {
       </div>
 
       {/* Floating Status Badge */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: 10 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.5, ease: "easeOut" }}
-        className="absolute -bottom-4 -left-4 flex items-center gap-2 px-4 py-2.5 rounded-full bg-card-bg/80 border border-border-custom backdrop-blur-xl shadow-xl text-xs font-semibold text-foreground"
+      <div
+        className="absolute -bottom-4 -left-4 flex items-center gap-2 px-4 py-2.5 rounded-full bg-card-bg/80 border border-border-custom backdrop-blur-xl shadow-xl text-xs font-semibold text-foreground transition-transform duration-300 hover:scale-105"
       >
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inset-0 rounded-full bg-emerald-400 opacity-75" />
           <span className="relative rounded-full h-2 w-2 bg-emerald-500" />
         </span>
         Available for opportunities
-      </motion.div>
+      </div>
 
       {/* Top-right floating tag */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: -10 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.5, ease: "easeOut" }}
-        className="absolute -top-3 -right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-500/80 to-cyan-500/80 text-white text-[10px] font-bold tracking-wider uppercase shadow-lg"
+      <div
+        className="absolute -top-3 -right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-500/80 to-cyan-500/80 text-white text-[10px] font-bold tracking-wider uppercase shadow-lg transition-transform duration-300 hover:scale-105"
       >
         AI Dev
-      </motion.div>
+      </div>
     </div>
   );
 }
-

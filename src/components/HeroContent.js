@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function HeroContent() {
   return (
     <div className="flex flex-col gap-4 text-left select-none">
@@ -24,15 +20,7 @@ export default function HeroContent() {
       </p>
 
       {/* Professional Identity Tags */}
-      <motion.div
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { delay: 0.4, duration: 0.8 } },
-        }}
-        initial="hidden"
-        animate="visible"
-        className="flex flex-wrap gap-2 mt-4 max-w-[520px]"
-      >
+      <div className="flex flex-wrap gap-2 mt-4 max-w-[520px]">
         {[
           { label: "AI & Machine Learning", color: "border-violet-400/30 bg-violet-500/[0.06] text-violet-600 dark:text-violet-400 dark:border-violet-400/30" },
           { label: "Web Development", color: "border-cyan-400/30 bg-cyan-500/[0.06] text-cyan-600 dark:text-cyan-400 dark:border-cyan-400/30" },
@@ -41,12 +29,12 @@ export default function HeroContent() {
         ].map((tag, i) => (
           <span
             key={i}
-            className={`tag-pill text-[10px] md:text-xs font-semibold tracking-wide uppercase px-3 py-1.5 rounded-full border ${tag.color}`}
+            className={`tag-pill text-[10px] md:text-xs font-semibold tracking-wide uppercase px-3 py-1.5 rounded-full border ${tag.color} transition-transform duration-200 hover:scale-105`}
           >
             {tag.label}
           </span>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

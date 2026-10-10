@@ -48,7 +48,7 @@
   --color-card-glass: var(--card-glass);
   --color-bg-alt: var(--bg-alt);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* ===== BASE BODY ===== */

@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function ScrollIndicator() {
   return (
     <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 select-none pointer-events-none z-20">
@@ -16,4 +12,3 @@ export default function ScrollIndicator() {
     </div>
   );
 }
-

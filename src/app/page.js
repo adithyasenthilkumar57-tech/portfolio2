@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Mail, Phone, MapPin } from "lucide-react";
@@ -9,7 +8,6 @@ import HeroContent from "@/components/HeroContent";
 import HeroImage from "@/components/HeroImage";
 import CTAButtons from "@/components/CTAButtons";
 import ScrollIndicator from "@/components/ScrollIndicator";
-import bgTechImg from "../../public/bg-tech.webp";
 import AutoScrollButton from "@/components/AutoScrollButton";
 
 export default function Home() {
@@ -258,17 +256,8 @@ export default function Home() {
         id="home"
         className="relative min-h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 py-24 z-20 overflow-hidden hero-bg-gradient"
       >
-        {/* Subtle Tech BG */}
-        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03] mix-blend-screen pointer-events-none">
-          <Image
-            src={bgTechImg}
-            alt="Tech Background Pattern"
-            title="Adithya Portfolio Tech Background Pattern"
-            fill
-            sizes="100vw"
-            className="object-cover filter blur-[60px] select-none scale-110"
-          />
-        </div>
+        {/* Subtle Tech Grid Texture */}
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.025] pointer-events-none bg-[radial-gradient(#7c3aed_1px,transparent_1px)] [background-size:24px_24px]" />
 
         {/* Floating Geometric Accents (GPU Composited) */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-10">

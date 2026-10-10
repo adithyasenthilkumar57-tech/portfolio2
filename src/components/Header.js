@@ -111,14 +111,12 @@ export default function Header() {
                   </button>
                   {/* Sliding Glass Capsule Effect */}
                   {isActive && (
-                    <motion.div
-                      layoutId="activeNavCapsule"
-                      className="absolute inset-0 bg-violet-500/[0.06] dark:bg-violet-400/[0.08] border border-violet-500/[0.15] dark:border-violet-400/[0.2] rounded-full z-0 flex items-end justify-center"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    <div
+                      className="absolute inset-0 bg-violet-500/[0.06] dark:bg-violet-400/[0.08] border border-violet-500/[0.15] dark:border-violet-400/[0.2] rounded-full z-0 flex items-end justify-center transition-all duration-300"
                     >
                       {/* Premium Violet-Cyan Glow Line */}
                       <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 shadow-[0_0_8px_rgba(124,58,237,0.7)] absolute -bottom-[1px]" />
-                    </motion.div>
+                    </div>
                   )}
                 </div>
               );
@@ -180,8 +178,7 @@ export default function Header() {
                     >
                       <span>{item.label}</span>
                       {isActive && (
-                        <motion.span
-                          layoutId="mobileActiveBullet"
+                        <span
                           className="w-2 h-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 shadow-[0_0_6px_rgba(124,58,237,0.6)]"
                         />
                       )}
