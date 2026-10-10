@@ -3,45 +3,13 @@
 import { motion } from "framer-motion";
 
 export default function HeroContent() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 35 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 55,
-        damping: 13,
-      },
-    },
-  };
-
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="flex flex-col gap-4 text-left select-none"
-    >
-      <motion.span
-        variants={itemVariants}
-        className="text-xs md:text-sm font-semibold tracking-[0.35em] text-accent-primary uppercase"
-      >
+    <div className="flex flex-col gap-4 text-left select-none">
+      <span className="text-xs md:text-sm font-semibold tracking-[0.35em] text-accent-primary uppercase">
         HELLO, I&apos;M
-      </motion.span>
+      </span>
 
-      <motion.h1
-        variants={itemVariants}
-        className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter uppercase leading-[0.9] flex flex-col gap-2"
-      >
+      <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter uppercase leading-[0.9] flex flex-col gap-2">
         <span className="gradient-text font-black">ADITHYA</span>
         <span className="text-foreground/50 font-light text-2xl md:text-3xl lg:text-4xl tracking-tight normal-case leading-tight">
           AI &amp; Machine Learning Student
@@ -49,23 +17,11 @@ export default function HeroContent() {
         <span className="text-accent-muted font-light text-2xl md:text-3xl lg:text-4xl tracking-tight normal-case leading-tight">
           Web Developer &amp; Experience Builder
         </span>
-      </motion.h1>
+      </h1>
 
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { delay: 0.28, duration: 0.8, ease: "easeOut" },
-          },
-        }}
-        initial="hidden"
-        animate="visible"
-        className="text-base md:text-lg text-accent-muted font-light leading-relaxed max-w-[500px] mt-2"
-      >
+      <p className="text-base md:text-lg text-accent-muted font-light leading-relaxed max-w-[500px] mt-2">
         I create modern digital experiences by combining web development, artificial intelligence, and creative design. Passionate about building innovative solutions, exploring emerging technologies, and transforming ideas into interactive user-focused products.
-      </motion.p>
+      </p>
 
       {/* Professional Identity Tags */}
       <motion.div
@@ -91,6 +47,6 @@ export default function HeroContent() {
           </span>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 }

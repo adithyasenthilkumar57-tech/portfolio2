@@ -175,45 +175,33 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <main className="relative min-h-screen w-full bg-background text-foreground transition-colors duration-300 p-6 md:p-12 overflow-x-hidden">
       {/* Editorial Noise Overlay */}
       <div className="noise-overlay" />
 
-      {/* Floating Blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 rounded-full bg-cyan-500/5 dark:bg-cyan-500/2 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/5 dark:bg-purple-500/2 blur-[140px]" />
-        <div className="absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full bg-emerald-500/3 dark:bg-emerald-500/2 blur-[160px]" />
+      {/* Floating Blobs (GPU Composited) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="animate-float-slow absolute top-[-10%] left-[-10%] w-96 h-96 rounded-full bg-blob-cyan" />
+        <div className="animate-float-reverse absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-blob-violet" />
+        <div className="animate-float-slow absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full bg-blob-pink" />
       </div>
 
       {/* Header controls */}
       <div className="relative z-50 max-w-6xl mx-auto flex items-center justify-between mb-12">
         <Link
           href="/"
+          aria-label="Return to portfolio home page"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border-custom bg-card-bg/40 hover:bg-card-bg/80 text-foreground text-xs md:text-sm font-medium transition-all duration-300 shadow-sm hover:border-foreground/30"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4" aria-hidden="true" />
           Return to Portfolio
         </Link>
         <ThemeToggle />
       </div>
 
       {/* Page Title Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 max-w-6xl mx-auto flex flex-col gap-4 mb-16"
-      >
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-4 mb-16">
         <span className="text-xs md:text-sm font-semibold tracking-[0.3em] text-accent-muted uppercase">
           PORTFOLIO SHOWCASE
         </span>
@@ -232,7 +220,7 @@ export default function ProjectsPage() {
             {projects.length} Projects Live
           </span>
         </div>
-      </motion.div>
+      </div>
 
       {/* Projects Grid */}
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -268,11 +256,12 @@ export default function ProjectsPage() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`View live demo for ${project.title} (opens in a new tab)`}
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-foreground text-background transition-all duration-300 hover:scale-105 shadow-sm"
                 >
                   <span>View Live</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                 </a>
               </div>
 

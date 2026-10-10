@@ -6,35 +6,27 @@ import portraitImg from "../../public/portrait.webp";
 
 export default function HeroImage() {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      className="relative flex items-center justify-center w-full max-w-[380px] sm:max-w-[420px] md:w-[420px] md:h-[560px] z-20"
-    >
+    <div className="relative flex items-center justify-center w-full max-w-[380px] sm:max-w-[420px] md:w-[420px] md:h-[560px] z-20">
       {/* Outer Glow Ring */}
       <div className="absolute inset-[-12px] rounded-[36px] bg-gradient-to-br from-violet-500/20 via-cyan-500/15 to-pink-500/20 blur-[20px] pointer-events-none" />
 
       {/* Gradient Border Frame */}
       <div className="absolute inset-[-2px] rounded-[30px] bg-gradient-to-br from-violet-500/60 via-cyan-500/40 to-pink-500/60 pointer-events-none" />
 
-      <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-        className="w-full h-full relative rounded-[28px] overflow-hidden shadow-[0_24px_60px_rgba(124,58,237,0.2)] dark:shadow-[0_24px_60px_rgba(167,139,250,0.25)] bg-black"
-      >
+      <div className="w-full h-full relative rounded-[28px] overflow-hidden shadow-[0_24px_60px_rgba(124,58,237,0.2)] dark:shadow-[0_24px_60px_rgba(167,139,250,0.25)] bg-black animate-float-gentle">
         <Image
           src={portraitImg}
           alt="Adithya - AI & Machine Learning Student & Web Developer"
           title="Adithya - Creative Developer & UI Engineer"
           fill
           priority
-          sizes="(max-width: 480px) 90vw, (max-width: 768px) 70vw, (max-width: 1024px) 50vw, 420px"
+          fetchPriority="high"
+          sizes="(max-width: 480px) 320px, (max-width: 768px) 380px, 420px"
           className="object-cover transition-transform duration-700 hover:scale-105"
         />
         {/* Gradient Overlay — editorial vignette */}
         <div className="absolute inset-0 bg-gradient-to-t from-violet-900/20 via-transparent to-cyan-900/10 pointer-events-none" />
-      </motion.div>
+      </div>
 
       {/* Floating Status Badge */}
       <motion.div
@@ -59,7 +51,7 @@ export default function HeroImage() {
       >
         AI Dev
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 

@@ -52,6 +52,7 @@ export default function AutoScrollButton() {
     <div className="fixed bottom-6 right-6 z-50">
       <button
         onClick={() => setIsActive(!isActive)}
+        aria-label={isActive ? "Pause auto scrolling" : "Start auto scrolling"}
         className={`flex items-center gap-2 px-4 py-3 rounded-full border text-xs tracking-wider font-mono font-bold uppercase transition-all duration-300 backdrop-blur-md shadow-lg cursor-pointer ${
           isActive
             ? "bg-cyan-500/20 border-cyan-500 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)] animate-pulse"

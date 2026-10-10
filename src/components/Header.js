@@ -19,12 +19,19 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Track scrolling to toggle header glassmorphism
+  // Track scrolling to toggle header glassmorphism with passive rAF throttle
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -63,10 +70,7 @@ export default function Header() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+      <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
           ? "py-4 bg-background/50 border-b border-border-custom shadow-lg shadow-black/[0.02] backdrop-blur-xl"
           : "py-6 bg-transparent border-b border-transparent"
@@ -74,25 +78,23 @@ export default function Header() {
       >
         <div className="relative max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-12">
           {/* Logo Area (Left) */}
-          <motion.div
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label="Adithya - Back to top"
             onClick={() => handleNavClick("home")}
-            className="cursor-pointer select-none text-foreground font-semibold tracking-[0.3em] text-xs md:text-sm font-sans flex items-center z-50"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleNavClick("home");
+              }
+            }}
+            className="cursor-pointer select-none text-foreground font-semibold tracking-[0.3em] text-xs md:text-sm font-sans flex items-center z-50 hover:scale-105 transition-transform"
           >
-            <motion.span
-              animate={{
-                y: [0, -2, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
+            <span className="animate-float-gentle inline-block">
               A D I T H Y A
-            </motion.span>
-          </motion.div>
+            </span>
+          </div>
 
           {/* Desktop Navigation Links (Centered in Header) */}
           <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-1 z-40 bg-foreground/[0.01] dark:bg-white/[0.01] border border-foreground/[0.06] dark:border-white/[0.06] rounded-full p-1 backdrop-blur-md shadow-sm">
@@ -140,7 +142,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Sidebar Panel Overlay */}
       <AnimatePresence>

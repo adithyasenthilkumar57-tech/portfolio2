@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, LazyMotion, domAnimation, m } from "framer-motion";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Mail, Phone, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import HeroContent from "@/components/HeroContent";
@@ -245,26 +246,12 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      {/* Global Background Blobs (very subtle, z-0) */}
-      <LazyMotion features={domAnimation}>
-        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-          <m.div
-            animate={{ scale: [1, 1.15, 1], x: [0, 60, 0], y: [0, -40, 0] }}
-            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-60 -left-60 w-[700px] h-[700px] rounded-full bg-violet-500/[0.06] dark:bg-violet-500/[0.08] blur-[140px]"
-          />
-          <m.div
-            animate={{ scale: [1, 1.2, 1], x: [0, -70, 0], y: [0, 50, 0] }}
-            transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[35%] -right-60 w-[600px] h-[600px] rounded-full bg-cyan-500/[0.05] dark:bg-cyan-500/[0.07] blur-[160px]"
-          />
-          <m.div
-            animate={{ scale: [1, 1.1, 1], x: [0, 40, 0], y: [0, 70, 0] }}
-            transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[-120px] left-[-80px] w-[500px] h-[500px] rounded-full bg-pink-500/[0.04] dark:bg-pink-500/[0.06] blur-[150px]"
-          />
-        </div>
-      </LazyMotion>
+      {/* Global Background Blobs (GPU Composited, 0% JS CPU) */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="animate-float-slow absolute -top-60 -left-60 w-[700px] h-[700px] rounded-full bg-blob-violet" />
+        <div className="animate-float-reverse absolute top-[35%] -right-60 w-[600px] h-[600px] rounded-full bg-blob-cyan" />
+        <div className="animate-float-slow absolute bottom-[-120px] left-[-80px] w-[500px] h-[500px] rounded-full bg-blob-pink" />
+      </div>
 
       {/* ================= SECTION 1: HERO ================= */}
       <section
@@ -278,37 +265,18 @@ export default function Home() {
             alt="Tech Background Pattern"
             title="Adithya Portfolio Tech Background Pattern"
             fill
-            loading="lazy"
             sizes="100vw"
             className="object-cover filter blur-[60px] select-none scale-110"
           />
         </div>
 
-        {/* Floating Geometric Accents */}
-        <LazyMotion features={domAnimation}>
-          <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-10">
-            <m.div
-              animate={{ y: [0, -20, 0], x: [0, 12, 0], rotate: [0, 10, 0] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[22%] left-[8%] w-10 h-10 rounded-full border border-violet-400/20 dark:border-violet-400/30"
-            />
-            <m.div
-              animate={{ y: [0, 28, 0], x: [0, -18, 0], rotate: [0, 180, 360] }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[75%] right-[12%] w-8 h-8 border border-cyan-400/20 dark:border-cyan-400/30 rounded-sm"
-            />
-            <m.div
-              animate={{ y: [-8, 12, -8], rotate: [-10, 10, -10] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[48%] left-[4%] w-14 h-[1px] bg-gradient-to-r from-violet-400/30 to-transparent"
-            />
-            <m.div
-              animate={{ y: [0, -16, 0], x: [0, 8, 0] }}
-              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute top-[15%] right-[8%] w-6 h-6 rounded-full border border-pink-400/20 dark:border-pink-400/30"
-            />
-          </div>
-        </LazyMotion>
+        {/* Floating Geometric Accents (GPU Composited) */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-10">
+          <div className="animate-float-gentle absolute top-[22%] left-[8%] w-10 h-10 rounded-full border border-violet-400/20 dark:border-violet-400/30" />
+          <div className="animate-rotate-slow absolute top-[75%] right-[12%] w-8 h-8 border border-cyan-400/20 dark:border-cyan-400/30 rounded-sm" />
+          <div className="animate-float-slow absolute top-[48%] left-[4%] w-14 h-[1px] bg-gradient-to-r from-violet-400/30 to-transparent" />
+          <div className="animate-float-gentle absolute top-[15%] right-[8%] w-6 h-6 rounded-full border border-pink-400/20 dark:border-pink-400/30" />
+        </div>
 
         <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 relative z-20">
           <div className="flex flex-col items-start gap-8 w-full max-w-2xl order-2 md:order-1 lg:order-1">
@@ -556,12 +524,13 @@ export default function Home() {
                 <span className="text-foreground">& INNOVATIONS</span>
               </h2>
             </div>
-            <a
+            <Link
               href="/projects"
+              aria-label="View all projects"
               className="self-start md:self-end inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold border border-border-custom bg-card-bg/50 hover:bg-violet-500/10 hover:border-violet-400/40 text-foreground transition-all duration-300 shrink-0 backdrop-blur-md"
             >
-              View All <ArrowUpRight className="w-4 h-4" />
-            </a>
+              View All <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -598,10 +567,12 @@ export default function Home() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Visit ${project.title} live website (opens in a new tab)`}
                       onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1 p-2 rounded-full border border-border-custom bg-foreground/[0.03] hover:bg-foreground hover:text-background text-foreground transition-all duration-300 hover:scale-110"
                     >
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      <span className="sr-only">Visit {project.title} live website</span>
                     </a>
                   </div>
 
@@ -629,14 +600,15 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center mt-4">
-            <a
+            <Link
               href="/projects"
+              aria-label="Explore all projects"
               className="btn-gradient relative z-10 inline-flex items-center gap-2 px-10 py-4 rounded-full font-semibold text-sm hover:scale-105 shadow-lg transition-all duration-300"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Explore All Projects <ArrowUpRight className="w-4 h-4" />
+                Explore All Projects <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </span>
-            </a>
+            </Link>
           </div>
         </motion.div>
       </section>
@@ -774,16 +746,18 @@ export default function Home() {
                   href="https://wa.me/919123558075"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Send message to Adithya on WhatsApp (opens in a new tab)"
                   className="btn-gradient relative px-8 py-4 rounded-full font-semibold text-sm md:text-base shadow-xl hover:scale-105 transition-all duration-300 text-center flex items-center justify-center min-w-[170px] gap-2 z-10"
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    <Mail className="w-4 h-4" /> Send Message
+                    <Mail className="w-4 h-4" aria-hidden="true" /> Send Message
                   </span>
                 </a>
                 <a
                   href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/MY%20RESUME.pdf`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="View Adithya's resume PDF (opens in a new tab)"
                   className="px-8 py-4 rounded-full font-semibold text-sm md:text-base border border-border-custom bg-card-bg/50 hover:bg-card-bg/80 hover:border-violet-400/40 text-foreground transition-all duration-300 shadow-sm hover:shadow-xl text-center flex items-center justify-center min-w-[170px] gap-2 backdrop-blur-md"
                 >
                   See Resume
@@ -863,11 +837,12 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       title={`Visit Adithya's ${social.label}`}
+                      aria-label={`Visit Adithya's ${social.label} profile (opens in a new tab)`}
                       className={`flex items-center gap-3 group/link font-semibold text-sm ${social.color} transition-all duration-300`}
                     >
-                      <span className={`w-2 h-2 rounded-full ${social.dot} flex-shrink-0`} />
+                      <span className={`w-2 h-2 rounded-full ${social.dot} flex-shrink-0`} aria-hidden="true" />
                       <span className="group-hover/link:translate-x-1 transition-transform duration-200">{social.label}</span>
-                      <ArrowUpRight className="w-3 h-3 ml-auto opacity-0 group-hover/link:opacity-100 transition-opacity duration-200" />
+                      <ArrowUpRight className="w-3 h-3 ml-auto opacity-0 group-hover/link:opacity-100 transition-opacity duration-200" aria-hidden="true" />
                     </a>
                   ))}
                 </div>

@@ -1,0 +1,38 @@
+# Adithya Senthilkumar - Portfolio & AI Developer
+
+> Creative Developer & UI Engineer specializing in Artificial Intelligence, Machine Learning, and Modern Web Experiences.
+
+## Personal Information
+- **Name:** Adithya Senthilkumar
+- **Role:** AI & Machine Learning Student | Creative Web Developer & UI Engineer
+- **Education:** Bachelor of Artificial Intelligence & Machine Learning (2024 - 2028), Sakthi Vigneshwara Kalvi Nilayam
+- **Location:** Tiruppur, Tamil Nadu, India
+- **Email:** Adithyasenthilkumar57@gmail.com
+- **Phone:** +91 9123558075
+- **Website:** https://adithyasenthilkumar57-tech.github.io/portfolio2/
+- **GitHub:** https://github.com/adithyasenthilkumar57-tech
+- **LinkedIn:** https://www.linkedin.com/in/adithya-s-6b5427378
+
+## Core Technical Skills
+- **Web Development:** React, Next.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Responsive Design, Git & GitHub
+- **Artificial Intelligence & Machine Learning:** Machine Learning Fundamentals, Neural Networks, AI Integrations, Automated Workflows
+- **Design & Creative:** UI/UX Design, Figma, Canva, Visual Storytelling, Interactive 3D Concepts
+- **Soft Skills:** Problem Solving, Team Collaboration, Leadership, Fast Learning, Communication, Critical Thinking
+
+## Featured Projects & Innovations
+- **OPS 3.0:** Autonomous Operations Platform bringing qualified leads, recovered revenue, and scheduled conversations into one workspace. Live: https://expo2-delta.vercel.app
+- **Clearway AI:** Quantum-inspired Traffic Intelligence Platform with adaptive signal scheduling and emergency vehicle corridors. Live: https://stars2.vercel.app/
+- **Freelancer Lead Radar:** AI-powered lead generation SaaS scanning 24/7 with automated cold outreach and CRM tracking. Live: https://flr-rouge.vercel.app/
+- **Cresconix:** Digital Agency & Creative Solutions showcase with modern design and animations. Live: https://cresconix.vercel.app/
+- **AgriTech Platform:** Smart agriculture platform providing AI crop insights and analytics. Live: https://agriculture2-3xga.vercel.app/
+- **WhatsApp Automation:** Multi-bot messaging and business automation platform. Live: https://whatsapp-automation-five-alpha.vercel.app/
+- **Cafe Model:** Hospitality showcase with interactive menus and reservation system. Live: https://cafemodel-kopl.vercel.app/
+- **Titan Alpha:** Cinematic brand and portfolio experience. Live: https://titan-alpha-nine.vercel.app/
+- **Developer Portfolio:** Personal showcase with sleek, minimal aesthetic. Live: https://portfolio-website-mhle.vercel.app/
+- **LinkedIn Clone:** Full-featured social networking platform with authentication. Live: https://linkedin-emxl.vercel.app/login?from=%2Fadmin
+- **WhatsApp Bot Pro:** Advanced messaging suite with broadcast analytics. Live: https://whatsapp-automation-five-alpha.vercel.app/
+
+## Landmark Achievements
+- **Smart India Hackathon:** Participated in national innovation challenge solving real-world problem statements.
+- **NPTEL Hackathon:** Technical algorithm and coding problem-solving challenge.
+- **Learning Platform:** Digital education solution design and interactive web training development.
